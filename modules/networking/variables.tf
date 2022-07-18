@@ -17,3 +17,7 @@ variable "vpc_name" {
   type    = string
   default = "JasperMainNet"
 }
+
+variable "ec2_cidr" {
+  type = list(string)
+}

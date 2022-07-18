@@ -9,7 +9,7 @@ module "vpc" {
   public_subnets               = var.public_sn
   create_database_subnet_group = true
   #enable_nat_gateway           = true
-  single_nat_gateway           = true
+  single_nat_gateway = true
 
 
 }
@@ -50,7 +50,7 @@ resource "aws_security_group" "jenkins-main-sg" {
   }
 
   tags = {
-    Name = "Jaspers_SecurityGroup"
+    Name = "JenkinsMainSG"
   }
   ingress {
     description = "https from the internet"
@@ -82,6 +82,73 @@ resource "aws_security_group" "jenkins-main-sg" {
   }
 }
 
+resource "aws_security_group" "jenkins-node-sg" {
+  name        = "jenkins-node-sg"
+  description = "Allow SSH inbound traffic"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress {
+    description = "SSH from the internet"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = var.ec2_cidr
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "http from the internet"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "JenkinsNodeSG"
+  }
+  ingress {
+    description = "https from the internet"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    description = "8080 from the internet"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
 
 
 data "http" "terraform_ip" {

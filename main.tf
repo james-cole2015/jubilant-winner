@@ -1,5 +1,6 @@
 module "networking" {
-  source = "./modules/networking"
+  source   = "./modules/networking"
+  ec2_cidr = module.ec2.ec2_cidr
 }
 
 module "ec2" {

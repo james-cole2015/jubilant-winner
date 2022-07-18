@@ -9,7 +9,7 @@ variable "subnet_id" {
 }
 
 variable "key_name" {
-  type    = any
+  type = any
 }
 
 variable "security_group" {
