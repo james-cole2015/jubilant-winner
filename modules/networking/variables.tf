@@ -19,5 +19,5 @@ variable "vpc_name" {
 }
 
 variable "ec2_public_ip" {
-  type = any
+  type = list(string) 
 }
