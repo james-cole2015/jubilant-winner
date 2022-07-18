@@ -2,6 +2,6 @@ output "vpc" {
   value = module.vpc
 }
 
-output "webserver-sg" {
-  value = aws_security_group.webserver-sg
+output "jenkins-main-sg" {
+  value = aws_security_group.jenkins-main-sg
 }

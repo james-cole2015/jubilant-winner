@@ -2,7 +2,7 @@ module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 4.0"
 
-  name = "JacksFlamingSword"
+  name = "Jenkins Main Server"
 
   ami                    = "ami-0439517b5e436bdab"
   instance_type          = "t2.micro"
@@ -10,7 +10,7 @@ module "ec2_instance" {
   monitoring             = true
   vpc_security_group_ids = var.security_group
   subnet_id              = var.subnet_id
-  user_data              = file("ws_bootstrap.sh")
+  user_data              = file("jenkins_install.sh")
   
 
 
@@ -27,7 +27,7 @@ resource "aws_ebs_volume" "ebs_vol_01" {
   encrypted = true
 
   tags = {
-    Name = "JacksFlamingShield"
+    Name = "JenkinsMainVolume"
   }
 }
 
