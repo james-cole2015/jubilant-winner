@@ -2,7 +2,7 @@ module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 4.0"
 
-  name = "JacksFlamingSword"
+  name = "Jenkins Main Server"
 
   ami                    = "ami-0439517b5e436bdab"
   instance_type          = "t2.micro"
@@ -27,7 +27,7 @@ resource "aws_ebs_volume" "ebs_vol_01" {
   encrypted = true
 
   tags = {
-    Name = "JacksFlamingShield"
+    Name = "JenkinsMainVolume"
   }
 }
 
