@@ -17,3 +17,7 @@ variable "vpc_name" {
   type    = string
   default = "JasperMainNet"
 }
+
+variable "ec2_public_ip" {
+  type = any
+}
