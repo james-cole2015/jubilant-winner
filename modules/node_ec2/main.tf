@@ -1,8 +1,8 @@
-module "ec2_instance" {
+module "ec2_node_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 4.0"
 
-  name = "Jenkins Main Server"
+  name = "Jenkins Node Server"
 
   ami                    = "ami-0439517b5e436bdab"
   instance_type          = "t2.micro"
@@ -17,7 +17,7 @@ module "ec2_instance" {
   tags = {
     Terraform   = "true"
     Environment = "dev"
-    Name = "Jenkins Main Server"
+    Name = "Jenkins Node Server"
   }
 }
 
@@ -28,14 +28,14 @@ resource "aws_ebs_volume" "ebs_vol_01" {
   encrypted         = true
 
   tags = {
-    Name = "JenkinsMainVolume"
+    Name = "JenkinsNodeVolume"
   }
 }
 
 resource "aws_volume_attachment" "ebs_att" {
   device_name = "/dev/sdh"
   volume_id   = aws_ebs_volume.ebs_vol_01.id
-  instance_id = module.ec2_instance.id
+  instance_id = module.ec2_node_instance.id
 }
 
 data "aws_availability_zones" "available" {
