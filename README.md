@@ -12,3 +12,7 @@ This is a fork from the [Space Monkey](https://github.com/james-cole2015/space-m
   - Jenkins Node SG
     - this SG will only allow ssh traffic from the Jenkins Main Server
 - Added additional EC2 instance that serves as the Jenkins Node Server
+
+![Final Architecture Diagram](https://github.com/james-cole2015/jubilant-winner/blob/main/jubliant-winner_architecture.jpg)[^1]
+
+[^1]: [Image generated from Terraform Visual](https://hieven.github.io/terraform-visual/)
