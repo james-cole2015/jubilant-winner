@@ -1,4 +1,4 @@
-### jubilant-winner
+# jubilant-winner
 
 This is a fork from the [Space Monkey](https://github.com/james-cole2015/space-monkey) repo. This had some major changes from the original repo. This repo contains two AWS EC2 instances. Both are set up to be Jenkins Servers. One is configured to be the Main server and another is configured to be a node server that builds jobs. 
 ---
