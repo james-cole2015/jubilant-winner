@@ -16,7 +16,7 @@ module "vpc" {
 
 resource "aws_security_group" "jenkins-main-sg" {
   name        = "jenkins-main-sg"
-  description = "Allow SSH inbound traffic"
+  description = "Allowing required traffic for Jenkins Main Server"
   vpc_id      = module.vpc.vpc_id
 
   ingress {
@@ -84,7 +84,7 @@ resource "aws_security_group" "jenkins-main-sg" {
 
 resource "aws_security_group" "jenkins-node-sg" {
   name        = "jenkins-node-sg"
-  description = "Allow SSH inbound traffic"
+  description = "Allowing required traffic for Jenkins Node Server"
   vpc_id      = module.vpc.vpc_id
 
   ingress {
