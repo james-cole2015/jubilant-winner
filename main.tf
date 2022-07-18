@@ -1,6 +1,6 @@
 module "networking" {
-  source        = "./modules/networking"
-  ec2_public_ip = [module.ec2.ec2_public_ip]
+  source   = "./modules/networking"
+  ec2_cidr = module.ec2.ec2_cidr
 }
 
 module "ec2" {

@@ -18,6 +18,6 @@ variable "vpc_name" {
   default = "JasperMainNet"
 }
 
-variable "ec2_public_ip" {
-  type = list(string) 
+variable "ec2_cidr" {
+  type = list(string)
 }

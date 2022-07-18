@@ -9,7 +9,7 @@ module "vpc" {
   public_subnets               = var.public_sn
   create_database_subnet_group = true
   #enable_nat_gateway           = true
-  single_nat_gateway           = true
+  single_nat_gateway = true
 
 
 }
@@ -50,7 +50,7 @@ resource "aws_security_group" "jenkins-main-sg" {
   }
 
   tags = {
-    Name = "Jaspers_SecurityGroup"
+    Name = "JenkinsMainSG"
   }
   ingress {
     description = "https from the internet"
@@ -92,7 +92,7 @@ resource "aws_security_group" "jenkins-node-sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = var.ec2_public_ip
+    cidr_blocks = var.ec2_cidr
   }
 
   egress {
