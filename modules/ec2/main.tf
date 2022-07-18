@@ -17,6 +17,7 @@ module "ec2_instance" {
   tags = {
     Terraform   = "true"
     Environment = "dev"
+    Name = "Jenkins Main Server"
   }
 }
 
