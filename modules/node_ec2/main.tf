@@ -17,7 +17,7 @@ module "ec2_node_instance" {
   tags = {
     Terraform   = "true"
     Environment = "dev"
-    Name = "Jenkins Node Server"
+    Name        = "Jenkins Node Server"
   }
 }
 
