@@ -21,3 +21,9 @@ variable "vpc_name" {
 variable "ec2_cidr" {
   type = list(string)
 }
+
+variable "repo-name" {
+  type = any
+}
+
+variable "user-name" {type = string}

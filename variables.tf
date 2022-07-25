@@ -6,3 +6,13 @@ variable "subnet_id" {
   type    = any
   default = ["$module.networking.vpc.public_subnets[0]"]
 }
+
+variable "repo-name" {
+  type = string 
+  default = "jubliant-winner"
+  }
+
+variable "user-name" {
+  type = string
+  default = "AveryClark"
+}

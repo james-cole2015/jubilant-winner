@@ -18,6 +18,8 @@ module "ec2_instance" {
     Terraform   = "true"
     Environment = "dev"
     Name        = "Jenkins Main Server"
+    repoName = var.repo-name
+    userName = var.user-name
   }
 }
 
@@ -29,6 +31,8 @@ resource "aws_ebs_volume" "ebs_vol_01" {
 
   tags = {
     Name = "JenkinsMainVolume"
+    userName = var.user-name
+    repoName = var.repo-name
   }
 }
 

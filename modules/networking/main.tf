@@ -51,6 +51,8 @@ resource "aws_security_group" "jenkins-main-sg" {
 
   tags = {
     Name = "JenkinsMainSG"
+    repoName = var.repo-name
+    userName = var.user-name
   }
   ingress {
     description = "https from the internet"
