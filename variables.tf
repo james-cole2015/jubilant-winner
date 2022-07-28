@@ -8,11 +8,11 @@ variable "subnet_id" {
 }
 
 variable "repo-name" {
-  type = string 
+  type    = string
   default = "jubliant-winner"
-  }
+}
 
 variable "user-name" {
-  type = string
+  type    = string
   default = "AveryClark"
 }

@@ -26,4 +26,4 @@ variable "repo-name" {
   type = any
 }
 
-variable "user-name" {type = string}
+variable "user-name" { type = string }

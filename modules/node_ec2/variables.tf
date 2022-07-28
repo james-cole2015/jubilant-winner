@@ -17,8 +17,8 @@ variable "security_group" {
 }
 
 variable "repo-name" {
-  type = string 
-  }
+  type = string
+}
 
 variable "user-name" {
   type = string
