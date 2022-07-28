@@ -15,7 +15,7 @@ module "ec2_instance" {
 
 
   tags = {
-    environment = "development"
+    environment = "production"
     Name        = "Jenkins Main Server"
     repo-name   = var.repo-name
     user        = var.user-name

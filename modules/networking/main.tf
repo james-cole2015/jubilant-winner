@@ -12,10 +12,11 @@ module "vpc" {
   single_nat_gateway = true
 
   tags = {
-    user      = var.user-name
-    repo-name = var.repo-name
-    platform  = "terraform"
-    function  = "jenkins"
+    user        = var.user-name
+    repo-name   = var.repo-name
+    platform    = "terraform"
+    function    = "jenkins"
+    environment = "production"
   }
 }
 
