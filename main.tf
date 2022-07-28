@@ -31,4 +31,7 @@ module "ec2_node" {
   user-name      = var.user-name
 }
 
+module "resource_group" {
+  source = "./modules/resource_group"
+}
 
