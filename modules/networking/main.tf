@@ -10,8 +10,13 @@ module "vpc" {
   create_database_subnet_group = true
   #enable_nat_gateway           = true
   single_nat_gateway = true
-
-
+  
+  tags = {
+    user = var.user-name
+    repo-name = var.repo-name
+    platform = "terraform"
+    function = "jenkins"
+  }
 }
 
 resource "aws_security_group" "jenkins-main-sg" {
@@ -51,8 +56,9 @@ resource "aws_security_group" "jenkins-main-sg" {
 
   tags = {
     Name = "JenkinsMainSG"
-    repoName = var.repo-name
-    userName = var.user-name
+    user = var.user-name
+    repo-name = var.repo-name
+    platform = "terraform"
   }
   ingress {
     description = "https from the internet"
@@ -121,6 +127,9 @@ resource "aws_security_group" "jenkins-node-sg" {
 
   tags = {
     Name = "JenkinsNodeSG"
+    user = var.user-name
+    repo-name = var.repo-name
+    platform = "terraform"
   }
   ingress {
     description = "https from the internet"

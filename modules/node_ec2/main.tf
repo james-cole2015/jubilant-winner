@@ -15,9 +15,12 @@ module "ec2_node_instance" {
 
 
   tags = {
-    Terraform   = "true"
     Environment = "dev"
     Name        = "Jenkins Node Server"
+    platform = "terraform"
+    user = var.user-name
+    repo-name = var.repo-name
+    function = "jenkins" 
   }
 }
 
@@ -28,7 +31,10 @@ resource "aws_ebs_volume" "ebs_vol_01" {
   encrypted         = true
 
   tags = {
-    Name = "JenkinsNodeVolume"
+    Name = "Jenkins Node Volume"
+    user = var.user-name
+    repo-name = var.repo-name
+    platform = "terraform"
   }
 }
 

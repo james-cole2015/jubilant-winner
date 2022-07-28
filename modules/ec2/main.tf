@@ -15,11 +15,12 @@ module "ec2_instance" {
 
 
   tags = {
-    Terraform   = "true"
-    Environment = "dev"
+    environment = "development"
     Name        = "Jenkins Main Server"
-    repoName = var.repo-name
-    userName = var.user-name
+    repo-name = var.repo-name
+    user = var.user-name
+    function = "jenkins"
+    platform = "terraform"
   }
 }
 
@@ -30,9 +31,10 @@ resource "aws_ebs_volume" "ebs_vol_01" {
   encrypted         = true
 
   tags = {
-    Name = "JenkinsMainVolume"
-    userName = var.user-name
-    repoName = var.repo-name
+    Name = "Jenkins Main Volume"
+    user = var.user-name
+    repo-name = var.repo-name
+    platform = "terraform"
   }
 }
 

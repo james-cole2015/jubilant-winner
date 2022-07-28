@@ -27,6 +27,8 @@ module "ec2_node" {
   key_name       = module.key_gen.key_name
   subnet_id      = module.networking.vpc.public_subnets[0]
   security_group = [module.networking.jenkins-node-sg.id]
+  repo-name = var.repo-name
+  user-name = var.user-name
 }
 
 
